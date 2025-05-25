@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpjxpuv06uj54"]
+
+[ext_resource type="Script" uid="uid://mo0v5pchtb0t" path="res://scripts/pre_game.gd" id="1_fwt8j"]
+
+[node name="PreGame" type="Node2D"]
+script = ExtResource("1_fwt8j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PreGameBackButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1106.0
+offset_right = 1148.0
+offset_bottom = 31.0
+text = "Salir"
+
+[node name="PlayerNumberButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 28.0
+offset_right = 293.0
+offset_bottom = 71.0
+item_count = 4
+popup/item_0/text = "2"
+popup/item_0/id = 0
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+popup/item_3/text = "5"
+popup/item_3/id = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 37.0
+offset_right = 201.0
+offset_bottom = 87.0
+text = "Nº de jugadores"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+offset_left = 79.0
+offset_top = 227.0
+offset_right = 208.0
+offset_bottom = 277.0
+text = "Modo de juego"
+
+[node name="Gamemode" type="OptionButton" parent="Control"]
+offset_left = 198.0
+offset_top = 219.0
+offset_right = 292.0
+offset_bottom = 262.0
+item_count = 2
+popup/item_0/text = "Sólo nombrar canciones"
+popup/item_0/id = 0
+popup/item_1/text = "Nombrar álbumes + canciones"
+popup/item_1/id = 1
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 457.0
+offset_right = 1026.0
+offset_bottom = 488.0
+text = "Empezar"
+
+[connection signal="pressed" from="Control/PreGameBackButton" to="." method="_on_pre_game_back_button_pressed"]
+[connection signal="item_selected" from="Control/PlayerNumberButton" to="." method="_on_player_number_button_item_selected"]
+[connection signal="item_selected" from="Control/Gamemode" to="." method="_on_gamemode_item_selected"]
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]

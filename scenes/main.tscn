@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgskdvyi5rxp"]
+
+[ext_resource type="PackedScene" uid="uid://cmgm6o0qswomy" path="res://scenes/main_menu.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://crwvpciw84dkv" path="res://scripts/main_menu.gd" id="2_sugp2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="MainMenu" parent="." instance=ExtResource("1_0xm2m")]
+script = ExtResource("2_sugp2")
+
+[node name="Control" type="Control" parent="MainMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="PlayButton" type="Button" parent="MainMenu/Control"]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 302.0
+offset_right = 700.0
+offset_bottom = 418.0
+text = "Jugar"
+
+[node name="InfoButton" type="Button" parent="MainMenu/Control"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 466.0
+offset_right = 768.0
+offset_bottom = 587.0
+text = "Información y como jugar."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 295.0
+text = "Beatlester"
+visible_characters = 10
+
+[connection signal="pressed" from="MainMenu/Control/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/Control/InfoButton" to="MainMenu" method="_on_info_button_pressed"]
